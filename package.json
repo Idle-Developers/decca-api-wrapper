@@ -1,0 +1,39 @@
+{
+  "name": "decca-api",
+  "version": "1.0.0",
+  "description": "A wrapper for the decca api",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Idle-Developers/decca-api-wrapper.git"
+  },
+  "keywords": [
+    "api",
+    "api-wrapper",
+    "decca-api",
+    "decca-api-wrapper",
+    "decca"
+  ],
+  "author": "decca-dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Idle-Developers/decca-api-wrapper/issues"
+  },
+  "homepage": "https://github.com/Idle-Developers/decca-api-wrapper#readme",
+  "devDependencies": {
+    "prettier": "^2.3.2",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "@types/node": "^16.3.1",
+    "@types/node-fetch": "^2.5.11",
+    "dotenv": "^10.0.0",
+    "node-fetch": "^2.6.1",
+    "path": "^0.12.7"
+  }
+}
