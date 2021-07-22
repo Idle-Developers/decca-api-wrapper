@@ -4,7 +4,9 @@
   "description": "A wrapper for the decca api",
   "main": "index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -30,10 +32,15 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
+    "@types/jimp": "^0.2.28",
     "@types/node": "^16.3.1",
     "@types/node-fetch": "^2.5.11",
     "dotenv": "^10.0.0",
+    "jimp": "^0.16.1",
     "node-fetch": "^2.6.1",
     "path": "^0.12.7"
-  }
+  },
+  "files": [
+    "lib/**/*"
+  ]
 }
