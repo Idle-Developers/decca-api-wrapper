@@ -2,6 +2,12 @@
 
 A wrapper for the [decca api](https://api.decc00n.tk) to make interaction with it easier.
 
+# Installation
+
+```
+$ npm install decca-api
+```
+
 # Usage
 
 **Javascript:**
