@@ -1,4 +1,4 @@
-export default class DeccaApiError extends Error {
+export class DeccaApiError extends Error {
   constructor(message: string) {
     super(message);
 
