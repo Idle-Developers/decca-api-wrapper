@@ -1,9 +1,5 @@
-import * as dotenv from 'dotenv';
 import fetch from 'node-fetch';
-import * as path from 'path';
 import DeccaApiError from './Error';
-
-dotenv.config({ path: path.join(__dirname, '..', '/.env') });
 
 const baseURL = 'https://api.decc00n.tk';
 
@@ -14,15 +10,12 @@ export default class Api {
     this.key = key;
 
     if (!key) {
-      throw new DeccaApiError('Missing Api key!');
-    } else if (key !== process.env.API_KEY) {
-      throw new DeccaApiError(
-        'Invalid API key! Please visit https://api.decc00n.tk to see how you can get your API key.',
-      );
+      throw new DeccaApiError('Missing API key!');
     }
   }
 
   async drip(imageUrl: string) {
+    fetchForErr(`${baseURL}/canvas/drip?key=${this.key}&imgUrl=${imageUrl}`);
     const res = await fetch(`${baseURL}/canvas/drip?key=${this.key}&imgUrl=${imageUrl}`);
     if (!res.ok) {
       throw new DeccaApiError(`An error occured during fetch!\nError: ${JSON.stringify(await res.json())}`);
@@ -32,6 +25,7 @@ export default class Api {
   }
 
   async bonk(imageUrl: string) {
+    fetchForErr(`${baseURL}/canvas/bonk?key=${this.key}&imgUrl=${imageUrl}`);
     const res = await fetch(`${baseURL}/canvas/bonk?key=${this.key}&imgUrl=${imageUrl}`);
     if (!res.ok) {
       throw new DeccaApiError(`An error occured during fetch!\nError: ${JSON.stringify(await res.json())}`);
@@ -41,6 +35,7 @@ export default class Api {
   }
 
   async brain(imageUrl: string) {
+    fetchForErr(`${baseURL}/canvas/brain?key=${this.key}&imgUrl=${imageUrl}`);
     const res = await fetch(`${baseURL}/canvas/brain?key=${this.key}&imgUrl=${imageUrl}`);
     if (!res.ok) {
       throw new DeccaApiError(`An error occured during fetch!\nError: ${JSON.stringify(await res.json())}`);
@@ -50,6 +45,11 @@ export default class Api {
   }
 
   async makeMeme(imageUrl: string, topTxt: string, botTxt: string, type: number) {
+    fetchForErr(
+      `${baseURL}/canvas/makememe?key=${
+        this.key
+      }&imgUrl=${imageUrl}&type=${type.toString()}&topTxt=${topTxt}&botTxt=${botTxt}`,
+    );
     const res = await fetch(
       `${baseURL}/canvas/makememe?key=${
         this.key
@@ -63,6 +63,7 @@ export default class Api {
   }
 
   async bright(imageUrl: string, val: number) {
+    fetchForErr(`${baseURL}/canvas/bright?key=${this.key}&imgUrl=${imageUrl}&val=${val.toString()}`);
     const res = await fetch(`${baseURL}/canvas/bright?key=${this.key}&imgUrl=${imageUrl}&val=${val.toString()}`);
     if (!res.ok) {
       throw new DeccaApiError(`An error occured during fetch!\nError: ${JSON.stringify(await res.json())}`);
@@ -72,6 +73,7 @@ export default class Api {
   }
 
   async contrast(imageUrl: string, val: number) {
+    fetchForErr(`${baseURL}/canvas/contrast?key=${this.key}&imgUrl=${imageUrl}&val=${val.toString()}`);
     const res = await fetch(`${baseURL}/canvas/contrast?key=${this.key}&imgUrl=${imageUrl}&val=${val.toString()}`);
     if (!res.ok) {
       throw new DeccaApiError(`An error occured during fetch!\nError: ${JSON.stringify(await res.json())}`);
@@ -81,6 +83,7 @@ export default class Api {
   }
 
   async invert(imageUrl: string) {
+    fetchForErr(`${baseURL}/canvas/invert?key=${this.key}&imgUrl=${imageUrl}`);
     const res = await fetch(`${baseURL}/canvas/invert?key=${this.key}&imgUrl=${imageUrl}`);
     if (!res.ok) {
       throw new DeccaApiError(`An error occured during fetch!\nError: ${JSON.stringify(await res.json())}`);
@@ -90,6 +93,7 @@ export default class Api {
   }
 
   async circle(imageUrl: string) {
+    fetchForErr(`${baseURL}/canvas/circle?key=${this.key}&imgUrl=${imageUrl}`);
     const res = await fetch(`${baseURL}/canvas/circle?key=${this.key}&imgUrl=${imageUrl}`);
     if (!res.ok) {
       throw new DeccaApiError(`An error occured during fetch!\nError: ${JSON.stringify(await res.json())}`);
@@ -99,6 +103,7 @@ export default class Api {
   }
 
   async yankee(imageUrl: string) {
+    fetchForErr(`${baseURL}/canvas/yankee?key=${this.key}&imgUrl=${imageUrl}`);
     const res = await fetch(`${baseURL}/canvas/yankee?key=${this.key}&imgUrl=${imageUrl}`);
     if (!res.ok) {
       throw new DeccaApiError(`An error occured during fetch!\nError: ${JSON.stringify(await res.json())}`);
@@ -108,6 +113,7 @@ export default class Api {
   }
 
   async sus(imageUrl: string) {
+    fetchForErr(`${baseURL}/canvas/sus?key=${this.key}&imgUrl=${imageUrl}`);
     const res = await fetch(`${baseURL}/canvas/sus?key=${this.key}&imgUrl=${imageUrl}`);
     if (!res.ok) {
       throw new DeccaApiError(`An error occured during fetch!\nError: ${JSON.stringify(await res.json())}`);
@@ -117,6 +123,7 @@ export default class Api {
   }
 
   async pixel(imageUrl: string) {
+    fetchForErr(`${baseURL}/canvas/pixel?key=${this.key}&imgUrl=${imageUrl}`);
     const res = await fetch(`${baseURL}/canvas/pixel?key=${this.key}&imgUrl=${imageUrl}`);
     if (!res.ok) {
       throw new DeccaApiError(`An error occured during fetch!\nError: ${JSON.stringify(await res.json())}`);
@@ -126,6 +133,7 @@ export default class Api {
   }
 
   async ping(imageUrl: string) {
+    fetchForErr(`${baseURL}/canvas/ping?key=${this.key}&imgUrl=${imageUrl}`);
     const res = await fetch(`${baseURL}/canvas/ping?key=${this.key}&imgUrl=${imageUrl}`);
     if (!res.ok) {
       throw new DeccaApiError(`An error occured during fetch!\nError: ${JSON.stringify(await res.json())}`);
@@ -135,6 +143,7 @@ export default class Api {
   }
 
   async gun(imageUrl: string) {
+    fetchForErr(`${baseURL}/canvas/gun?key=${this.key}&imgUrl=${imageUrl}`);
     const res = await fetch(`${baseURL}/canvas/gun?key=${this.key}&imgUrl=${imageUrl}`);
     if (!res.ok) {
       throw new DeccaApiError(`An error occured during fetch!\nError: ${JSON.stringify(await res.json())}`);
@@ -144,6 +153,7 @@ export default class Api {
   }
 
   async afvsae(f1: string, f2: string) {
+    fetchForErr(`${baseURL}/canvas/afvsae?key=${this.key}&f1=${f1}&f2=${f2}`);
     const res = await fetch(`${baseURL}/canvas/afvsae?key=${this.key}&f1=${f1}&f2=${f2}`);
     if (!res.ok) {
       throw new DeccaApiError(`An error occured during fetch!\nError: ${JSON.stringify(await res.json())}`);
@@ -153,6 +163,7 @@ export default class Api {
   }
 
   async reverse(text: string) {
+    fetchForErr(`${baseURL}/string/reverse?key=${this.key}&string=${text}`);
     const res = await fetch(`${baseURL}/string/reverse?key=${this.key}&string=${text}`);
     if (!res.ok) {
       throw new DeccaApiError(`An error occured during fetch!\nError: ${JSON.stringify(await res.json())}`);
@@ -163,6 +174,7 @@ export default class Api {
   }
 
   async mock(text: string) {
+    fetchForErr(`${baseURL}/string/mock?key=${this.key}&string=${text}`);
     const res = await fetch(`${baseURL}/string/mock?key=${this.key}&string=${text}`);
     if (!res.ok) {
       throw new DeccaApiError(`An error occured during fetch!\nError: ${JSON.stringify(await res.json())}`);
@@ -173,21 +185,27 @@ export default class Api {
   }
 
   async randomID() {
+    fetchForErr(`${baseURL}/string/randomid?key=${this.key}`);
     const res = await fetch(`${baseURL}/string/randomid?key=${this.key}`);
     return await res.json();
   }
 
   async trivia() {
+    fetchForErr(`${baseURL}/extra/trivia?key=${this.key}`);
     const res = await fetch(`${baseURL}/extra/trivia?key=${this.key}`);
     return await res.json();
   }
 
   async ftl() {
+    fetchForErr(`${baseURL}/extra/ftl?key=${this.key}`);
     const res = await fetch(`${baseURL}/extra/ftl?key=${this.key}`);
     return await res.json();
   }
 
   async welcome(bgImg: string, topTxt: string, botTxt: string, avatar: string, username: string, txtColor: string) {
+    fetchForErr(
+      `${baseURL}/discord/welcome?key=${this.key}&bgImg=${bgImg}&topTxt=${topTxt}&botTxt=${botTxt}&avatar=${avatar}&username=${username}&txtColor=${txtColor}`,
+    );
     const res = await fetch(
       `${baseURL}/discord/welcome?key=${this.key}&bgImg=${bgImg}&topTxt=${topTxt}&botTxt=${botTxt}&avatar=${avatar}&username=${username}&txtColor=${txtColor}`,
     );
@@ -208,6 +226,11 @@ export default class Api {
     xp: number,
     xpNeeded: number,
   ) {
+    fetchForErr(
+      `${baseURL}/discord/xp?key=${
+        this.key
+      }&bgImg=${bgImg}&rank=${rank.toString()}&level=${level.toString()}&username=${username}&discriminator=${discriminator}&xp=${xp.toString()}&xpNeeded=${xpNeeded.toString()}`,
+    );
     const res = await fetch(
       `${baseURL}/discord/xp?key=${
         this.key
@@ -220,3 +243,13 @@ export default class Api {
     }
   }
 }
+
+const fetchForErr = (url: string) => {
+  fetch(url).then(async (res) => {
+    if (!res.ok) {
+      throw new DeccaApiError(
+        `An error occured regarding authentication.\nStatus: ${res.status}\nError: ${JSON.stringify(await res.json())}`,
+      );
+    }
+  });
+};
