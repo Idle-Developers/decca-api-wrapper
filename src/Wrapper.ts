@@ -229,12 +229,12 @@ export class Api {
     fetchForErr(
       `${baseURL}/discord/xp?key=${
         this.key
-      }&bgImg=${bgImg}&rank=${rank.toString()}&level=${level.toString()}&username=${encodeURIComponent(username)}&discriminator=${encodeURIComponent(discriminator)}&xp=${xp.toString()}&xpNeeded=${xpNeeded.toString()}`
+      }&bgImg=${bgImg}&avatar=${avatar}&rank=${rank.toString()}&level=${level.toString()}&username=${encodeURIComponent(username)}&discriminator=${encodeURIComponent(discriminator)}&xp=${xp.toString()}&xpNeeded=${xpNeeded.toString()}`
     );
     const res = await fetch(
       `${baseURL}/discord/xp?key=${
         this.key
-      }&bgImg=${bgImg}&rank=${rank.toString()}&level=${level.toString()}&username=${encodeURIComponent(username)}&discriminator=${encodeURIComponent(discriminator)}&xp=${xp.toString()}&xpNeeded=${xpNeeded.toString()}`
+      }&bgImg=${bgImg}&avatar=${avatar}&rank=${rank.toString()}&level=${level.toString()}&username=${encodeURIComponent(username)}&discriminator=${encodeURIComponent(discriminator)}&xp=${xp.toString()}&xpNeeded=${xpNeeded.toString()}`
     );
     if (!res.ok) {
       throw new DeccaApiError(`An error occured during fetch!\nError: ${JSON.stringify(await res.json())}`);
