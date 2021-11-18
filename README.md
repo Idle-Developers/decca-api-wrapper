@@ -269,16 +269,6 @@ Generates a discord welcome card
     .then(res => card = res)
 ```
 
-### Welcome
-
-Generates a discord welcome card
-
-```js
-    let card;
-    api.welcome("https://cdn.discordapp.com/emojis/778554329975750656.png", "welcome!", "to our lit server", "https://cdn.discordapp.com/avatars/589044704708919316/af2f2a94f8e538ab4f9c33c231f0d1af.png", "decc00n", "white")
-    .then(res => card = res)
-```
-
 ### Xp
 
 Generates a discord xp card
